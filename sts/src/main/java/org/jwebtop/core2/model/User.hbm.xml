@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.jwebtop.core.model.User" table="users" lazy="false">
+		<id name="id" column="uid_"></id>
+		<property name="username" column="username_" type="string" />
+		<property name="password" column="password_" type="string" />
+		<property name="email" column="email_" type="string" />
+
+		<!-- One-One Mapping using primary key associations -->
+		<one-to-one name="profile" class="org.jwebtop.core.model.Profile"/>
+
+		<property name="createdTime" column="createdtime_" type="timestamp" />
+		<property name="updatedTime" column="updatedtime_" type="timestamp" />
+
+	</class>
+</hibernate-mapping>
