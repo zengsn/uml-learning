@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- DAOs -->
+	<bean id="userDao" class="org.jwebtop.core.dao.orm.HibernateUserDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="profileDao" class="org.jwebtop.core.dao.orm.HibernateProfileDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="webwareDao" class="org.jwebtop.core.dao.orm.HibernateWebwareDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- Services -->
+	<bean id="cacheService" class="org.jwebtop.core.service.CacheServiceWithEhcache">
+		<property name="ehcache">
+			<ref bean="jwEhcache" />
+		</property>
+	</bean>
+
+	<bean id="userService" class="org.jwebtop.core.service.UserServiceImpl">
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+		<!-- <property name="cacheService"> <ref bean="cacheService"/> </property> -->
+		<property name="profileService">
+			<ref bean="profileService" />
+		</property>
+	</bean>
+	<bean id="profileService" class="org.jwebtop.core.service.ProfileServiceImpl">
+		<property name="profileDao">
+			<ref bean="profileDao" />
+		</property>
+	</bean>
+	<bean id="webwareService" class="org.jwebtop.core.service.WebwareServiceImpl">
+		<property name="webwareDao">
+			<ref bean="webwareDao" />
+		</property>
+		<property name="cacheService">
+			<ref bean="cacheService" />
+		</property>
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
+		<property name="profileService">
+			<ref bean="profileService" />
+		</property>
+		<property name="mutableAclService">
+			<ref bean="aclService" />
+		</property>
+		<property name="configurationService">
+			<ref bean="configurationService" />
+		</property>
+	</bean>
+
+	<bean id="configurationService" class="org.jwebtop.core.service.ConfigurationServiceImpl">
+	</bean>
+
+	<!-- Actions -->
+	<bean id="index" class="org.jwebtop.core.web.IndexAction">
+		<property name="forward">
+			<value>/webtop.jsp</value>
+		</property>
+		<property name="configurationService">
+			<ref bean="configurationService" />
+		</property>
+		<property name="webwareService">
+			<ref bean="webwareService" />
+		</property>
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
+
+	<bean id="webware" class="org.jwebtop.core.web.WebwareAction">
+		<property name="webwareService">
+			<ref bean="webwareService" />
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.jwebtop.core.model.Webware" table="webwares"
+		lazy="false">
+		<!-- for spring security compatible, use number here -->
+		<id name="id" column="wid_" type="int" unsaved-value="null">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" column="name_" type="string" />
+		<property name="title" column="title_" type="string" />
+		<property name="author" column="author_" type="string" />
+		<property name="release" column="release_" type="string" />
+		<property name="screen" column="screen_" type="string" />
+		<property name="logo" column="logo_" type="string" />
+		<property name="icon" column="icon_" type="string" />
+		<property name="description" column="description_" type="string" />
+		
+		<property name="versions" column="versions_" type="string" />
+		<property name="currentVersion" column="currentversion_" type="string" />
+		
+		<property name="status" column="status_" type="int" />
+		
+		<property name="styles" column="styles_" type="string" />
+		<property name="jsSources" column="jssources_" type="string" />
+		<property name="acl" column="acl_" type="string" />
+		
+		<property name="jsClass" column="jsclass_" type="string" />
+		<property name="springContext" column="springcontext_" type="string" />
+
+		<property name="createdTime" column="createdtime_" type="timestamp" />
+
+	</class>
+</hibernate-mapping>
