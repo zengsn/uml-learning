@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link type="text/css" rel="stylesheet" href="style/style.css" />
+		<link type="text/css" rel="stylesheet" href="style/lm.css" />
+		<script src="./js/jquery-1.6.1.js"></script>
+		<script src="./js/index.js"></script>
+		<script src="./js/drag.js"></script>
+		<script src="./js/draw.js"></script>
+		<script src="./js/lm.js"></script>
+		<script src="./js/shape.js"></script>
+		<title>Uml Learning</title>
+	</head>
+
+	<body>
+		<header>
+			<nav>
+				<h1>uml在线画图工具</h1>
+			</nav>
+		</header>
+		<aside id="uml-els">
+			<div class="lm">
+				<ul id="menu">
+					<li class="item">
+						<a href="javascript:void(0)" class="title" name="1">用例图</a>
+						<ul id="opt_1" class="optiton">
+							<li>
+								<a href="#">
+								<img src="./images/actor.png" height="30" name="actor"  onclick="javascript:addEl(this);" />
+								Actor
+								</a>
+							</li>
+							<li>
+								<a href="#">
+								<img src="./images/usecase.png" name="usecase" onclick="javascript:addEl(this);" />
+								Usecase
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="item">
+						<a href="javascript:void(0)" class="title" name="2">类图</a>
+						<ul id="opt_2" class="optiton">
+							<li>
+								<a href="#">
+								<img src="./images/class.png" name="class" onclick="javascript:addEl(this);" />
+								Class
+								</a>
+							</li>
+							<li>
+								<a href="#"></a>
+							</li>
+						</ul>
+					</li>
+					<li class="item">
+						<a href="javascript:void(0)" class="title" name="3">顺序图</a>
+						<ul id="opt_3" class="optiton">
+							<li>
+								<a href="#"></a>
+							</li>
+							<li>
+								<a href="#"></a>
+							</li>
+							<li>
+								<a href="#"></a>
+							</li>
+						</ul>
+					</li>
+					<li class="item">
+						<a href="javascript:void(0)" class="title" name="4">状态图</a>
+						<ul id="opt_4" class="optiton">
+							<li>
+								<a href="#">
+								<img src="./images/status.png" width="30" name="status" onclick="javascript:addEl(this);" />Status
+								</a>
+							</li>
+							<li>
+								<a href="#"></a>
+							</li>
+							<li>
+								<a href="#"></a>
+							</li>
+						</ul>
+					</li>
+					<li class="item">
+						<a href="javascript:void(0)" class="title" name="5">活动图</a>
+						<ul id="opt_5" class="optiton">
+							<li>
+								<a href="#">
+								<img src="./images/start.png" name="start" onclick="javascript:addEl(this);" />Start
+								</a>
+							</li>
+							<li>
+								<a href="#">
+								<img src="./images/end.png" name="end" onclick="javascript:addEl(this);" />end
+								</a>
+							</li>
+							<li>
+								<a href="#">
+								<img src="./images/condition.png" width="30" name="condition" onclick="javascript:addEl(this);" />Condition
+								</a>
+							</li>
+							<li>
+								<a href="#">
+								<img src="./images/text.png" width="30" name="text" onclick="javascript:addEl(this);" />Text
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="item">
+						<a href="javascript:void(0)" class="title" name="6">周晓彬</a>
+						<ul id="opt_6" class="optiton">
+							<li>
+								<a href="#"></a>
+							</li>
+							<li>
+								<a href="#"></a>
+							</li>
+							<li>
+								<a href="#"></a>
+							</li>
+							<li>
+								<a href="#"></a>
+							</li>
+						</ul>
+					</li>
+					<li class="item">
+						<a href="javascript:void(0)" class="title" name="7">陈丽莎</a>
+						<ul id="opt_7" class="optiton">
+							<li>
+								<a href="#"></a>
+							</li>
+							<li>
+								<a href="#"></a>
+							</li>
+							<li>
+								<a href="#"></a>
+							</li>
+							<li>
+								<a href="#"></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</aside>
+		<div id="uml-main">
+			<div id="uml-title">
+				<span>作业一</span>
+				<span style="float:right;margin-right:25px;">
+					<!--
+					<span>
+						<input type="button" value="Save" id="i-save" />
+					</span>
+					-->
+					<span>
+						<input type="button" value="Save As" id="i-saveAs" />
+					</span>
+					<span>
+						<input type="button" value="Upload" />
+					</span>
+					<span>
+						<input type="button" value="Output" id="i-output" />
+					</span>
+					<span>
+						<input type="button" value="Delete" id="deleteEl" onclick="removeEl();" />
+					</span>
+					<span>
+						<input type="button" value="ZoomIn" id="zoomInEl" onclick="zoomIn();" />
+					</span>
+					<span>
+						<input type="button" value="ZoomOut" id="zoomOutEl" onclick="zoomOut();" />
+					</span>
+				</span>
+			</div>
+			<div id="uml-canvas">
+				<canvas id="myCanvas">
+				</canvas>
+			</div>
+			<div id="uml-status">
+				asdf
+			</div>
+		</div>
+		<aside id="uml-att">
+			<div id="properties">
+				<div id="p-main">
+					<div id="p-title"><h5>Basic</h5></div>
+					<div id="p-basic">
+						Text:<input id="i-text" type="text" name="text" value="text" />
+						<br />
+					</div>
+				</div>
+				<div id="p-main">
+					<div id="p-title"><h5>Other</h5></div>
+					<div id="p-other"></div>
+				</div>
+			</div>
+		</aside>
+		<footer>
+			&copy;CopyRight
+		</footer>
+	</body>
+</html>
