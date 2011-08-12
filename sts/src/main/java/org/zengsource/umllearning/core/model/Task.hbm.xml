@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.zengsource.umllearning.core.model.Task" table="tb_task" lazy="false">
+		<id name="t_id" column="t_id"></id>
+		<property name="t_author" column="t_author" type="string"></property>
+		<property name="t_type" column="t_type" type="string"></property>
+		<property name="t_subject" column="t_subject" type="string"></property>
+		<property name="t_title" column="t_title" type="string"></property>
+		<property name="t_pic" column="t_pic" type="string"></property>
+		<property name="t_content" column="t_content" type="string"></property>
+		<property name="t_posttime" column="t_posttime" type="timestamp"></property>
+		<property name="t_finishtime" column="t_finishtime" type="timestamp"></property>
+	</class>
+</hibernate-mapping>

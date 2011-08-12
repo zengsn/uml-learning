@@ -1,0 +1,13 @@
+[{
+	"id":"EmptyPackage",
+	"text":"EmptyPackage",
+	"leaf" : true
+}, {
+	"id":"drect",
+	"text":"Package",
+	"leaf" : true
+}, {
+	"id":"strokeLine",
+	"text":"what name?",
+	"leaf" : true
+}]

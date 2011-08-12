@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="./3rdp/sencha/extjs/4.0.2a/resources/css/ext-all.css" />
     <link rel="stylesheet" type="text/css" href="./3rdp/sencha/extjs/4.0.2a/examples/desktop/css/desktop.css" />
-
+	<!-- <script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/locale/ext-lang-zh_CN.js"></script>-->
     <!-- TODO JSBuilder -->
     <script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/bootstrap.js"></script>
     <!-- Dev -->    
@@ -24,29 +24,49 @@
     <script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/examples/desktop/js/TaskBar.js"></script>
     
     <script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/examples/desktop/VideoWindow.js"></script>
+    <!-- 
     <script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/examples/desktop/BogusModule.js"></script>
     <script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/examples/desktop/BogusMenuModule.js"></script>
+    -->
     <script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/examples/desktop/Settings.js"></script>
+    <!-- 
     <script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/examples/desktop/TabWindow.js"></script>
+    -->
     <script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/examples/desktop/WallpaperModel.js"></script>
+    <!-- 
     <script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/examples/desktop/GridWindow.js"></script>
     <script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/examples/desktop/AccordionWindow.js"></script>
     <script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/examples/desktop/SystemStatus.js"></script>
     <script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/examples/desktop/Notepad.js"></script>
+    -->
+   
+	<script type="text/javascript" src="./js/BrowserInformationWin.js"></script>
+	<script type="text/javascript" src="./js/CheckHomeworkWin.js"></script>
+    <script type="text/javascript" src="./js/CheckTask.js"></script>
+	<script type="text/javascript" src="./js/TeacherWin.js"></script>
+    <script type="text/javascript" src="./js/StudentWin.js"></script>
+    <script type="text/javascript" src="./js/UmlWin.js"></script>
+    <script type="text/javascript" src="./js/ProfileSetting.js"></script>
+    <script type="text/javascript" src="./js/PostQuestion.js"></script>
+    <script type="text/javascript" src="./js/DoTask.js"></script>
+    <script type="text/javascript" src="./js/jquery-1.6.1.js"></script>
+    <script type="text/javascript" src="./js/draw.js"></script>
+    
     
     <!-- script type="text/javascript" src="./3rdp/sencha/extjs/4.0.2a/examples/desktop/App.js"></script-->
     <script type="text/javascript" src="./webtop.js"></script>
-
+	<link rel="stylesheet" type="text/css" href="./css/css.css" />
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
     <script type="text/javascript">
     	Ext.Loader.setConfig({ enabled: true });
     	Ext.Loader.setPath({
             'Ext.ux.desktop': 'js',
             MyDesktop: ''
         });
-		Ext.require('MyDesktop.SystemStatus');
-		Ext.require('MyDesktop.GridWindow');
-		Ext.require('MyDesktop.AccordionWindow');
-		Ext.require('MyDesktop.Notepad');
+		//Ext.require('MyDesktop.SystemStatus');
+		//Ext.require('MyDesktop.GridWindow');
+		//Ext.require('MyDesktop.AccordionWindow');
+		//Ext.require('MyDesktop.Notepad');
         Ext.require('MyDesktop.App');
 
         var myDesktopApp;

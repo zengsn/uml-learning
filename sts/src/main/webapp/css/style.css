@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin : 0;
+	padding : 0;	
+}
+
+body{
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	font-size: 12px;
+	font-family: Arial, "MS Trebuchet", sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
+a:hover{
+	color: #ff0000;
+	font-weight: bold;
+}
+
+header{
+	height: 35px;
+	line-height: 35px;
+}
+/*
+header nav ul{
+	list-style: none;
+}
+header nav ul li{
+	float: left;
+	width: auto;
+	line-height: 35px;
+	padding-left: 5px;
+}
+*/
+#uml-main{
+	width: 72%;
+	height: 600px;
+	/*background:#008000;*/
+	border-top : 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-left: none;
+	float: left;
+}
+#uml-els{
+	clear: both;
+	width: 10%;
+	height: 600px;
+	background:#CCCCCC;
+	border-top : 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	float: left;
+}
+#uml-title{
+	width: 100%;
+	height: 24px;
+	line-height: 24px;
+	padding-left:20px;
+	border-bottom: 1px solid #000000;
+	background: #ffffff;
+}
+
+#uml-canvas{
+	width: 100%;
+	height: 556px;
+}
+
+#myCanvas{
+	background-color: #fff;   
+	resize: both;   
+	overflow: auto;  
+}
+#uml-status{
+	width: 100%;
+	height: 20px;
+	border-top: 1px solid #000000;
+}
+#uml-att {
+	width: 18%;
+	height: 600px;
+	float:left;
+	background: #cccccc;
+	border-top : 1px solid #000000;
+	border-bottom: 1px solid #000000;
+}
+#uml-att #properties {
+	width: 88%;
+	margin: 5px auto;
+	line-height: 24px;
+	
+}
+#properties #p-main{
+	width : 100%;
+	height : 100%;
+	background : #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+#properties #p-title{
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	text-indent: 12px;
+	margin: 10px 0 0 0 ;
+	padding : 0 0 5px 0;
+	background:-webkit-gradient(linear, center top, center bottom, from(#ADADAD), to(#ffffff)); 
+	background:-moz-linear-gradient(left, #ADADAD, #ffffff) !important;
+}
+#properties #p-basic,#properties #p-other{
+	padding: 10px 0 10px 12px;
+}
+footer{
+	text-align: center;
+	padding-top: 10px;
+	clear: both;
+}

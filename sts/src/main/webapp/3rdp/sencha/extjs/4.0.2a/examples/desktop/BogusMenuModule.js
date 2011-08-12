@@ -24,25 +24,32 @@ Ext.define('MyDesktop.BogusMenuModule', {
 
     init : function() {
 
-        this.launcher = {
-            text: 'More items',
-            iconCls: 'bogus',
-            handler: function() {
-                return false;
-            },
-            menu: {
-                items: []
-            }
-        };
+//        this.launcher = {
+//            text: 'More items',
+//            iconCls: 'bogus',
+//            handler: function() {
+//                return false;
+//            },
+//            menu: {
+//                items: [{
+//                	id : 'post-win',
+//                	text : 'a',
+//                	iconCls : 'bogus',
+//                	scope : this
+//                }, {
+//                	text : 'b'
+//                }]
+//            }
+//        };
 
-        for (var i = 0; i < 5; ++i) {
-            this.launcher.menu.items.push({
-                text: 'Window '+(++windowIndex),
-                iconCls:'bogus',
-                handler : this.createWindow,
-                scope: this,
-                windowId: windowIndex
-            });
-        }
+//        for (var i = 0; i < 5; ++i) {
+//            this.launcher.menu.items.push({
+//                text: 'Window '+(++windowIndex),
+//                iconCls:'bogus',
+//                handler : this.createWindow,
+//                scope: this,
+//                windowId: windowIndex
+//            });
+//        }
     }
 });

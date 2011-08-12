@@ -27,17 +27,25 @@ Ext.define('MyDesktop.App', {
 
         'Ext.ux.desktop.ShortcutModel',
 
-        'MyDesktop.SystemStatus',
-        'MyDesktop.VideoWindow',
-        'MyDesktop.GridWindow',
-        'MyDesktop.TabWindow',
-        'MyDesktop.AccordionWindow',
-        'MyDesktop.Notepad',
-        'MyDesktop.BogusMenuModule',
-        'MyDesktop.BogusModule',
+        //'MyDesktop.SystemStatus',
+        //'MyDesktop.VideoWindow',
+        //'MyDesktop.GridWindow',
+        //'MyDesktop.TabWindow',
+        //'MyDesktop.AccordionWindow',
+        //'MyDesktop.Notepad',
+        //'MyDesktop.BogusMenuModule',
+        //'MyDesktop.BogusModule',
 
 //        'MyDesktop.Blockalanche',
-        'MyDesktop.Settings'
+        'MyDesktop.Settings',
+        'MyDesktop.UmlWin',
+        'MyDesktop.TeacherWin',
+        'MyDesktop.StudentWin',
+        'MyDesktop.PostQuestion',
+        'MyDesktop.CheckTask',
+        'MyDesktop.CheckHomeworkWin',
+        'MyDesktop.BrowserInformationWin',
+        'MyDesktop.DoTask'
     ],
 
     init: function() {
@@ -50,15 +58,24 @@ Ext.define('MyDesktop.App', {
 
     getModules : function(){
         return [
-            new MyDesktop.VideoWindow(),
+            //new MyDesktop.VideoWindow(),
             //new MyDesktop.Blockalanche(),
-            new MyDesktop.SystemStatus(),
-            new MyDesktop.GridWindow(),
-            new MyDesktop.TabWindow(),
-            new MyDesktop.AccordionWindow(),
-            new MyDesktop.Notepad(),
-            new MyDesktop.BogusMenuModule(),
-            new MyDesktop.BogusModule()
+            //new MyDesktop.SystemStatus(),
+            //new MyDesktop.GridWindow(),
+            //new MyDesktop.TabWindow(),
+            //new MyDesktop.AccordionWindow(),
+            //new MyDesktop.Notepad(),
+            //new MyDesktop.BogusMenuModule(),
+            //new MyDesktop.BogusModule(),
+            new MyDesktop.TeacherWin(),
+            new MyDesktop.UmlWin(),
+            new MyDesktop.StudentWin(),
+            new MyDesktop.ProfileSetting(),
+            new MyDesktop.PostQuestion(),
+            new MyDesktop.CheckTask(),
+            new MyDesktop.CheckHomeworkWin(),
+            new MyDesktop.BrowserInformationWin(),
+            new MyDesktop.DoTask()
         ];
     },
 
@@ -75,14 +92,21 @@ Ext.define('MyDesktop.App', {
             shortcuts: Ext.create('Ext.data.Store', {
                 model: 'Ext.ux.desktop.ShortcutModel',
                 data: [
-                    { name: '帐号设置', iconCls: 'grid-shortcut', module: 'grid-win' },
-                    { name: '查看作业', iconCls: 'accordion-shortcut', module: 'acc-win' },
-                    { name: '查看成绩', iconCls: 'notepad-shortcut', module: 'notepad' },
-                    { name: '学习资料', iconCls: 'cpu-shortcut', module: 'systemstatus'}
+                    { name: '帐号设置', iconCls: 'grid-shortcut', module: 'profile-win' },
+                    //{ name: '查看作业', iconCls: 'accordion-shortcut', module: 'acc-win' },
+                    //{ name: '查看成绩', iconCls: 'notepad-shortcut', module: 'notepad' },
+                    //{ name: '学习资料', iconCls: 'cpu-shortcut', module: 'systemstatus'},
+                    { name: 'Uml在线画图', iconCls: 'uml-shortcut', module: 'uml-win'},
+                    { name: '教师工具', iconCls: 'teacher-shortcut', module: 'teacher-win'},
+                    { name: '学生工具', iconCls: 'student-shortcut', module: 'stu-win'},
+                    { name: '发布问题', iconCls: 'student-shortcut', module: 'post-win'},
+                    //{ name: '检查作业', iconCls: 'student-shortcut', module: 'checktask-win'},
+                    { name: '查看作业', iconCls:'grid-shortcut', module: 'checkhomework-win'},
+                    //{ name: '浏览信息', iconCls:'teacher-shortcut',module:'browserinformation-win'},
                 ]
             }),
 
-            wallpaper: 'wallpapers/Blue-Sencha.jpg',
+            wallpaper: './3rdp/sencha/extjs/4.0.2a/examples/desktop/wallpapers/Blue-Sencha.jpg',
             wallpaperStretch: false
         });
     },
@@ -120,10 +144,10 @@ Ext.define('MyDesktop.App', {
         var ret = this.callParent();
 
         return Ext.apply(ret, {
-            quickStart: [
-                { name: 'Accordion Window', iconCls: 'accordion', module: 'acc-win' },
-                { name: 'Grid Window', iconCls: 'icon-grid', module: 'grid-win' }
-            ],
+            //quickStart: [
+            //    { name: 'Accordion Window', iconCls: 'accordion', module: 'acc-win' },
+            //    { name: 'Grid Window', iconCls: 'icon-grid', module: 'grid-win' }
+            //],
             trayItems: [
                 { xtype: 'trayclock', flex: 1 }
             ]

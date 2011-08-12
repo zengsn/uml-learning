@@ -1,0 +1,41 @@
+[{
+	"id":"start",
+	"text":"Start",
+	"leaf" : true
+}, {
+	"id":"end",
+	"text":"End",
+	"leaf" : true
+}, {
+	"id":"status",
+	"text":"Status",
+	"leaf" : true
+}, {
+	"id":"Time Signal",
+	"text":"time",
+	"leaf" : true
+}, {
+	"id":"hrect",
+	"text":"hrect",
+	"leaf" : true
+}, {
+	"id":"vrect",
+	"text":"vrect",
+	"leaf" : true
+}, {
+	"id":"condition",
+	"text":"Condition",
+	"leaf" : true
+}, {
+	"id":"SimpleClass",
+	"text":"DataObject",
+	"leaf" : true
+}, {
+	"id":"SendSignal",
+	"text":"SendSignal",
+	"leaf" : true
+}, {
+	"id":"ReceiveSignal",
+	"text":"ReceiveSignal",
+	"leaf" : true
+}]
