@@ -1,0 +1,34 @@
+[{
+	"id":"12",
+	"text":"actor",
+	"leaf" : true
+}, {
+	"id":"asdf",
+	"text":"13213",
+	"leaf" : true
+}, {
+	"id":"1sadfds2",
+	"text":"13213",
+	"leaf" : true
+}, {
+	"id":"1asdfds2",
+	"text":"13213",
+	"leaf" : true
+}, {
+	"id":"1dasf2",
+	"text":"13213",
+	"leaf" : true
+}, {
+	"id":"1asdfdsf2",
+	"text":"13213",
+	"leaf" : true
+}, {
+	"id":"1dasfdsf2",
+	"text":"13213",
+	"leaf" : true
+}, {
+	"id":"1dsafdsfds2",
+	"text":"13213",
+	"leaf" : true,
+	"icon" : '../images/student.png'
+}]

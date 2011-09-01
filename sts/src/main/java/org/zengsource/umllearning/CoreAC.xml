@@ -23,6 +23,13 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	
+	<!-- hzucmj -->
+	<bean id="TaskDao" class="org.zengsource.umllearning.core.dao.orm.HibernateTaskDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 
 	<!-- Services -->
 	<bean id="cacheService" class="org.jwebtop.core.service.CacheServiceWithEhcache">
@@ -69,6 +76,13 @@
 	<bean id="configurationService" class="org.jwebtop.core.service.ConfigurationServiceImpl">
 	</bean>
 
+	<!-- hzucmj -->
+	<bean id="TaskService" class="org.zengsource.umllearning.core.service.TaskServiceImpl">
+		<property name="TaskDao">
+			<ref bean="TaskDao"/>
+		</property>
+	</bean>
+
 	<!-- Actions -->
 	<bean id="index" class="org.jwebtop.core.web.IndexAction">
 		<property name="forward">
@@ -88,6 +102,13 @@
 	<bean id="webware" class="org.jwebtop.core.web.WebwareAction">
 		<property name="webwareService">
 			<ref bean="webwareService" />
+		</property>
+	</bean>
+
+	<!-- hzucmj -->
+	<bean id="task" class="org.zengsource.umllearning.core.web.TaskAction">
+		<property name="TaskService">
+			<ref bean="TaskService" />
 		</property>
 	</bean>
 

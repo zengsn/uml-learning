@@ -1,0 +1,96 @@
+.x-ie6 .teacher-shortcut {
+    background-image: none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/teacher.png', sizingMethod='scale');
+}
+.x-ie6 .student-shortcut {
+    background-image: none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/student.png', sizingMethod='scale');
+}
+.x-ie6 .uml-shortcut {
+    background-image: none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/uml.png', sizingMethod='scale');
+}
+.teacher-shortcut {
+    background-image: url(../images/teacher.png);
+}
+.student-shortcut {
+    background-image: url(../images/student.png);
+}
+.uml-shortcut {
+    background-image: url(../images/uml.png);
+}
+#u_pic{
+	margin : 10px;
+    width : 58px;
+    height : 58px;
+    border : 1px solid #cccccc;
+    float :left;
+}
+#u_pic img {
+    margin: 5px;
+}
+#u_profile {
+    line-height : 24px;
+    padding-top : 15px;
+    float : left;
+}
+
+/*
+#tasks{
+    line-height : 24px;
+    margin :10px;
+    clear : both;
+    border-top : 1px solid #cccccc;
+}
+#tauthor {
+    color : #0ff;
+    font-weight : bold;
+}
+#tcontent {
+    
+}
+#tpic img {
+    padding : 10px;
+}
+#ttime {
+    width : 100%;
+}
+#tpost{
+	width : 150px;
+    float : left;
+}
+#tfinish {
+	width : 150px;
+	text-align : right;
+    float : right;
+}*/
+
+#task {
+	width : 100%;
+	line-height: 24px;
+	border: 1px solid #cccccc;
+	font-size: 12px;
+	margin-top : 2px;
+	cursor: hand;
+	padding-left : 10px;
+}
+#task:hover {
+	background : #f0f0f0;
+}
+#task #t_head #t_author {
+	font-weight: bold;
+	color: #06F;
+}
+#task #t_head {
+	font-weight: bold;
+}
+#task #t_body #t_pic {
+	padding: 10px;
+}
+
+
+.x-tree-icon-leaf .actor{
+	background-image: url(../images/student.png);
+}
+
+.icon-menu{background-image: url(../images/student.png) !important;}

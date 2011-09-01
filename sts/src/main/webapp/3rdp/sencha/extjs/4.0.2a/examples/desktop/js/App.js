@@ -103,7 +103,6 @@ Ext.define('Ext.ux.desktop.App', {
             app: me,
             menu: []
         };
-
         Ext.apply(cfg, me.startConfig);
 
         Ext.each(me.modules, function (module) {

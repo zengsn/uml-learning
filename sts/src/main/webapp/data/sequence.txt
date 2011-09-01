@@ -1,0 +1,13 @@
+[{
+	"id":"SimpleClass",
+	"text":"Instance",
+	"leaf" : true
+}, {
+	"id":"interaction",
+	"text":"Interaction",
+	"leaf" : true
+}, {
+	"id":"bvrect",
+	"text":"what name?",
+	"leaf" : true
+}]
