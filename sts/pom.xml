@@ -101,6 +101,46 @@
     	<artifactId>hibernate-entitymanager</artifactId>
     	<version>3.4.0.GA</version>
     </dependency>
+    <dependency>
+    	<groupId>ehcache</groupId>
+    	<artifactId>ehcache</artifactId>
+    	<version>1.2.3</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.zengsource</groupId>
+    	<artifactId>zengsource-util</artifactId>
+    	<version>1.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>commons-beanutils</groupId>
+    	<artifactId>commons-beanutils</artifactId>
+    	<version>1.7.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>commons-fileupload</groupId>
+    	<artifactId>commons-fileupload</artifactId>
+    	<version>1.2</version>
+    </dependency>
+    <dependency>
+    	<groupId>commons-io</groupId>
+    	<artifactId>commons-io</artifactId>
+    	<version>2.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>commons-logging</groupId>
+    	<artifactId>commons-logging</artifactId>
+    	<version>1.0.3</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.zengsource</groupId>
+    	<artifactId>zengsource-mvc</artifactId>
+    	<version>1.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.aspectj</groupId>
+    	<artifactId>aspectjweaver</artifactId>
+    	<version>1.6.8</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>umllearning</finalName>

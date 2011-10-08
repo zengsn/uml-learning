@@ -159,7 +159,7 @@ Ext.define('Ext.ux.desktop.Desktop',
 		}
 
 		ret.items.push({
-			text : 'Tile',
+			text : '标题',
 			handler : me.tileWindows,
 			scope : me,
 			minWindows : 1
@@ -178,19 +178,19 @@ Ext.define('Ext.ux.desktop.Desktop',
 		return {
 			defaultAlign : 'br-tr',
 			items : [ {
-				text : 'Restore',
+				text : '恢复',
 				handler : me.onWindowMenuRestore,
 				scope : me
 			}, {
-				text : 'Minimize',
+				text : '最小化',
 				handler : me.onWindowMenuMinimize,
 				scope : me
 			}, {
-				text : 'Maximize',
+				text : '最大化',
 				handler : me.onWindowMenuMaximize,
 				scope : me
 			}, '-', {
-				text : 'Close',
+				text : '关闭',
 				handler : me.onWindowMenuClose,
 				scope : me
 			} ],
@@ -262,25 +262,23 @@ Ext.define('Ext.ux.desktop.Desktop',
 		});
 
 		// create the Tree
-		var tree = Ext
-				.create(
-						'Ext.tree.Panel',
-						{
-							store : store,
-							hideHeaders : true,
-							border : false,
-							autoRender : true,
-							rootVisible : rootvisible,
-							iconCls : 'icon-sys',
-							listeners : {
-								'itemclick' : function(view,
-										record) {
-									var nid = record.data.id, ntext = record.data.text;
-									console.log("tree's node id : " + nid);
-									return nid;
-								}
-							}
-						});
+		var tree = Ext.create('Ext.tree.Panel',	{
+			store : store,
+			hideHeaders : true,
+			border : false,
+			autoRender : true,
+			autoShow : true,
+			rootVisible : rootvisible,
+			iconCls : 'icon-sys',
+			listeners : {
+				'itemclick' : function(view,
+						record) {
+					var nid = record.data.id, ntext = record.data.text;
+					console.log("tree's node id : " + nid);
+					return nid;
+				}
+			}
+		});
 
 		return tree;
 	},

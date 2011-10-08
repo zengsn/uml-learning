@@ -1,0 +1,25 @@
+[{
+	"id":"SimpleClass",
+	"text":"SimpleClass",
+	"leaf" : true
+}, {
+	"id":"condition",
+	"text":"Condition",
+	"leaf" : true
+}, {
+	"id":"interface",
+	"text":"Interface",
+	"leaf" : true
+}, {
+	"id":"Note",
+	"text":"Note",
+	"leaf" : true
+}, {
+	"id":"class",
+	"text":"Class",
+	"leaf" : true
+}, {
+	"id":"text",
+	"text":"Text",
+	"leaf":true
+}]

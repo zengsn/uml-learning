@@ -11,9 +11,11 @@
 
 
     <http access-decision-manager-ref="accessDecisionManager" auto-config="false">
-        <intercept-url pattern="/index.jxp*" access="ROLE_USER,ROLE_GUEST" />
-    	<intercept-url pattern="/signin.jxp" access="ROLE_USER,ROLE_GUEST"/>  
-		<intercept-url pattern="/*.jxp*" access="ROLE_USER"/>
+    	<intercept-url pattern="/index.jsp" access="ROLE_STUDENT,ROLE_TEACHER,ROLE_ADMIN" />
+        <intercept-url pattern="/index.jxp*" access="ROLE_STUDENT,ROLE_TEACHER,ROLE_ADMIN" />
+        <intercept-url pattern="/signon.jxp" access="ROLE_STUDENT,ROLE_TEACHER,ROLE_GUEST,ROLE_ADMIN"/>  
+    	<intercept-url pattern="/signin.jxp" access="ROLE_STUDENT,ROLE_TEACHER,ROLE_GUEST,ROLE_ADMIN"/>  
+		<intercept-url pattern="/*.jxp*" access="ROLE_STUDENT,ROLE_TEACHER,ROLE_ADMIN"/>
         <!-- 
 		<intercept-url pattern="/*.jxp*" access="ROLE_USER"/>
     	<intercept-url pattern="/signin.jxp" access="permitAll"/>    	
@@ -29,7 +31,7 @@
 
     <authentication-manager> 
     <authentication-provider>    	
-    	<!--  
+    	<!-- 
     	<password-encoder hash="md5" />
         <user-service>
             <user name="admin" password="admin"

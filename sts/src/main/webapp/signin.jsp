@@ -4,9 +4,9 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Sign in</title>
-	<link rel="shortcut icon" href="http://zsn.cc/resources/images/favicon.ico" />
-	<link rel="icon" href="http://zsn.cc/resources/images/favicon.ico" />
+	<title>登录UML在线学习系统</title>
+	<link rel="shortcut icon" href="./images/favicon.ico" />
+	<link rel="icon" href="./images/favicon.ico" />
 	<!-- ExtJS 4 -->
     <link rel="stylesheet" type="text/css" href="./3rdp/sencha/extjs/4.0.2a/resources/css/ext-all.css" />
     <!-- TODO JSBuilder -->
@@ -15,6 +15,9 @@
     
 </head>
 <body>
+	<script>
+		
+	</script>
 	<div class="x-hidden">
 		<h1>Sign in | <a href="./signon.jxp">Sign on</a></h1>
 
@@ -31,9 +34,11 @@
 		
 		<div id="form-ct"></div>
 		</div><c:if test="${not empty param.error}">
-		<font color="red">
+		<font color="red" class="x-hidden">
 		Login error. <br />
 		Reason : ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+
+		
 		</font>
 		</c:if>
 		

@@ -1,90 +1,93 @@
 package org.zengsource.umllearning.core.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Task implements Serializable {
+public class Task {
 
-	private String t_id;
-	private String t_author;
-	private String t_type;
-	private String t_subject;
-	private String t_title;
-	private String t_pic;
-	private String t_content;
-	private Date t_posttime;
-	private Date t_finishtime;
+	private String id;
+	private String author;
+	private String type;
+	private String subject;
+	private String title;
+	private String pic;
+	private String content;
+	private Date posttime;
+	private Date finishtime;
 
-	public String getT_id() {
-		return t_id;
+	public Task(){
+		
+	}
+	
+	public String getId() {
+		return id;
 	}
 
-	public void setT_id(String t_id) {
-		this.t_id = t_id;
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public String getAuthor() {
+		return author;
 	}
 
-	public String getT_author() {
-		return t_author;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
-	public void setT_author(String t_author) {
-		this.t_author = t_author;
+	public String getType() {
+		return type;
 	}
 
-	public String getT_type() {
-		return t_type;
+	public void setType(String type) {
+		this.type = type;
 	}
 
-	public void setT_type(String t_type) {
-		this.t_type = t_type;
+	public String getSubject() {
+		return subject;
 	}
 
-	public String getT_subject() {
-		return t_subject;
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 
-	public void setT_subject(String t_subject) {
-		this.t_subject = t_subject;
+	public String getTitle() {
+		return title;
 	}
 
-	public String getT_title() {
-		return t_title;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public void setT_title(String t_title) {
-		this.t_title = t_title;
+	public String getPic() {
+		return pic;
 	}
 
-	public String getT_pic() {
-		return t_pic;
+	public void setPic(String pic) {
+		this.pic = pic;
 	}
 
-	public void setT_pic(String t_pic) {
-		this.t_pic = t_pic;
+	public String getContent() {
+		return content;
 	}
 
-	public String getT_content() {
-		return t_content;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	public void setT_content(String t_content) {
-		this.t_content = t_content;
+	public Date getPosttime() {
+		return posttime;
 	}
 
-	public Date getT_posttime() {
-		return t_posttime;
+	public void setPosttime(Date posttime) {
+		this.posttime = posttime;
 	}
 
-	public void setT_posttime(Date t_posttime) {
-		this.t_posttime = t_posttime;
+	public Date getFinishtime() {
+		return finishtime;
 	}
 
-	public Date getT_finishtime() {
-		return t_finishtime;
-	}
-
-	public void setT_finishtime(Date t_finishtime) {
-		this.t_finishtime = t_finishtime;
+	public void setFinishtime(Date finishtime) {
+		this.finishtime = finishtime;
 	}
 
 }

@@ -10,6 +10,22 @@
     background-image: none;
     filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/uml.png', sizingMethod='scale');
 }
+.x-ie6 .post-shortcut {
+    background-image: none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/post.png', sizingMethod='scale');
+}
+.x-ie6 .user-shortcut {
+    background-image: none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/profile.png', sizingMethod='scale');
+}
+.x-ie6 .keyboard-shortcut {
+    background-image: none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/profile.png', sizingMethod='scale');
+}
+.x-ie6 .homework-shortcut {
+    background-image: none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/homework.png', sizingMethod='scale');
+}
 .teacher-shortcut {
     background-image: url(../images/teacher.png);
 }
@@ -18,6 +34,18 @@
 }
 .uml-shortcut {
     background-image: url(../images/uml.png);
+}
+.post-shortcut {
+    background-image: url(../images/post.png);
+}
+.user-shortcut {
+    background-image: url(../images/profile.png);
+}
+.keyboard-shortcut {
+    background-image: url(../images/keyboard.png);
+}
+.homework-shortcut {
+    background-image: url(../images/homework.png);
 }
 #u_pic{
 	margin : 10px;
@@ -65,7 +93,7 @@
     float : right;
 }*/
 
-#task {
+#x-task {
 	width : 100%;
 	line-height: 24px;
 	border: 1px solid #cccccc;
@@ -74,18 +102,21 @@
 	cursor: hand;
 	padding-left : 10px;
 }
-#task:hover {
+#x-task:hover {
 	background : #f0f0f0;
 }
-#task #t_head #t_author {
+#x-task #x-t_head #x-t_author {
 	font-weight: bold;
 	color: #06F;
 }
-#task #t_head {
+#x-task #x-t_head {
 	font-weight: bold;
 }
-#task #t_body #t_pic {
-	padding: 10px;
+#x-task #x-t_content {
+	color : #000000;
+}
+#x-task #x-t_body #x-t_pic {
+	/*padding: 10px;*/
 }
 
 

@@ -38,12 +38,23 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="mappingResources"><!-- 固定写法 -->
 			<list>
+				<!-- 
 				<value>org/jwebtop/core/model/User.hbm.xml</value>
 				<value>org/jwebtop/core/model/Profile.hbm.xml</value>
 				<value>org/jwebtop/core/model/Webware.hbm.xml</value>
 				<value>org/jwebtop/core/model/Configuration.hbm.xml</value>
+				-->
+				<!-- hzucmj -->
+				<value>org/zengsource/umllearning/core/model/Task.hbm.xml</value>
+				<value>org/zengsource/umllearning/core/model/Comment.hbm.xml</value>
+				<value>org/zengsource/umllearning/core/model/Homework.hbm.xml</value>
+				<value>org/zengsource/umllearning/core/model/Authority.hbm.xml</value>
+				<!-- swyma -->
+				<value>org/zengsource/umllearning/core/model/Register.hbm.xml</value>
+				<!-- swyma -->
+				<value>org/zengsource/umllearning/core/model/Follow.hbm.xml</value>
+				<value>org/zengsource/umllearning/core/model/Webtop.hbm.xml</value>
 				
-
 			<!-- 
 				<value>org/jwebtop/core/model/Relation.hbm.xml</value>
 				<value>org/jwebtop/core/model/SaveUserFiles.hbm.xml</value>

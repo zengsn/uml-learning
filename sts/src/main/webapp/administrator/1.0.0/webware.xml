@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webware>
+	<wid>administrator</wid>
+	<name>超级管理器</name>
+	<author>zsn.cc</author>
+	<release>2009-06-11</release>
+	<screen>administrator-screen.png</screen>
+	<logo>administrator-48.png</logo>
+	<icon>administrator-icon.png</icon>
+	<description>
+		<![CDATA[
+			管理员可用于强制更新网件配置、管理用户、管理群组、管理访问权限等。
+		]]>
+	</description>
+	<versions>1.0.0</versions>
+	<currentVersion>1.0.0</currentVersion>
+	<status>1</status>
+    <styles>
+    	<style>administrator.css</style>
+    </styles>
+	<jsSources>
+		<source>ControlPanel.js</source>
+		<source>CmpSetting.js</source>
+	</jsSources>
+	<jsCompress>null</jsCompress>
+	<jsClass>JW.PreferencesWindow</jsClass>
+	<springContext>org/jwebtop/webwares/applicationContext.xml</springContext>
+	<acl>
+		<view>admin</view>
+		<install>admin</install>
+		<manage>admin</manage>
+	</acl>
+</webware>

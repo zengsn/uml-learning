@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<!--
+<script type="text/javascript" src="./ext-all.js"></script>
+<script type="text/javascript" src="./ext.js"></script>
+-->
+<link type="text/css" rel="stylesheet" href="./resources/css/ext-all.css" />
+<script type="text/javascript" src="./bootstrap.js"></script>
+</head>
+<body>
+<script>
+	Ext.onReady(function() {
+
+
+		var panel = Ext.create('Ext.tab.Panel', {
+			title : 'abcd',
+			height : 100,
+			width : 100,
+			items : [{
+				title : 'aaaa'
+			}, {
+				title : 'bbbb'
+			}]
+		});
+
+		var panel1 = Ext.create('Ext.panel.Panel', {
+			title : 'abcd',
+			height : 100,
+			width : 100
+		});
+
+
+		var win1 = new Ext.Window({
+			title : 'hello world',
+			width : 200,
+			height : 200,
+			layout : 'accordion',
+			buttons : [{
+				text : 'btn1',
+				handler : function (){
+					win.hide();
+				}
+			}, {
+				text : 'btn2'
+			}],
+			minimizable : true,
+			maximizable : true,
+			items : [panel, panel1]
+		});
+
+		var win = Ext.create('Ext.window.Window', {
+			 title: 'Hello',
+			  height: 200,
+			  width: 400,
+			  layout: 'fit',
+			  tbar : [{
+			  	text : 'aaaa'
+			  }, {
+			  	text : 'bbbbb'
+			  }],
+			  bbar : [{
+			  	text : 'aaaa'
+			  }, {
+			  	text : 'bbbbb'
+			  }]
+		});
+		win.show();
+
+		win1.show();
+	});
+</script>
+</body>
+</html>

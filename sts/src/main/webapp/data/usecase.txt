@@ -14,4 +14,12 @@
 	"id":"Note",
 	"text":"Note",
 	"leaf" : true
+}, {
+	"id":"line",
+	"text":"Line",
+	"leaf" : true
+}, {
+	"id":"text",
+	"text":"Text",
+	"leaf":true
 }]
