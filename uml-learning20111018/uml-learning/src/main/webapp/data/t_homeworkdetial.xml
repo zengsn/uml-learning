@@ -1,0 +1,37 @@
+<students>
+	<student>
+		<id>081403229</id>
+		<name>swyma</name>
+		<score>100</score>
+		<time>2011-08-08</time>	
+		<detail>这是第一次作业，题目很简单</detail>	
+	</student>
+	<student>
+		<id>01</id>
+		<name>swyma</name>
+		<score>100</score>
+		<time>2011-08-08</time>	
+		<detail>这是第一次作业，题目很简单</detail>	
+	</student>
+	<student>
+		<id>02</id>
+		<name>swyma</name>
+		<score>100</score>
+		<time>2011-08-08</time>	
+		<detail>这是第一次作业，题目很简单</detail>	
+	</student>
+	<student>
+		<id>03</id>
+		<name>swyma</name>
+		<score>100</score>
+		<time>2011-08-08</time>	
+		<detail>这是第一次作业，题目很简单</detail>	
+	</student>
+	<student>
+		<id>04</id>
+		<name>swyma</name>
+		<score>100</score>
+		<time>2011-08-08</time>	
+		<detail>这是第一次作业，题目很简单</detail>	
+	</student>
+</students>

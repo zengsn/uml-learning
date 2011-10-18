@@ -1,0 +1,39 @@
+ <!DOCTYPE html>
+ <html>
+ <head> 
+	<link type="text/css" rel="stylesheet" href="./resources/css/ext-all.css"/>
+	<script type="text/javascript" src="./bootstrap.js"></script>
+ </head>
+ <body>
+ <script type="text/javascript">
+	Ext.onReady(function(){
+		
+		var formPanel = Ext.create('Ext.panel.Panel', {
+			padding : 10,
+			baseCls : 'plain',
+			defaultType : 'textfield',
+			items : [{
+				//xtype : 'textfield',
+				fieldLabel : 'Username'
+			}, {
+				//xtype : 'textfield',
+				fieldLabel : 'Password'
+			}],
+		});
+		
+		Ext.create('Ext.window.Window', {
+			title : 'Login Form',
+			width : 290,
+			height : 130,
+			resizable : false,
+//			layout : 'fit',
+			items : formPanel,
+			buttons : [{
+				text : 'submit'
+			}]
+		}).show();
+		
+	});
+ </script>
+ </body>
+ </html>

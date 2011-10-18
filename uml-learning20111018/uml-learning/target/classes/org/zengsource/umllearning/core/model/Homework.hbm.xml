@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.zengsource.umllearning.core.model.Homework" table="tb_completestatus" lazy="false">
+		<id name="csId" column="cs_id"></id>
+		<property name="tid" column="t_id" type="string"></property>
+		<property name="csName" column="cs_name" type="string"></property>
+		<property name="csHomeworkId" column="cs_homeworkid" type="string"></property>
+		<property name="csScore" column="cs_score" type="string"></property>
+		<property name="csFlag" column="cs_flag" type="boolean"></property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,71 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+   <global-method-security secured-annotations="enabled"
+      access-decision-manager-ref="aclAccessDecisionManager" />
+
+
+    <http access-decision-manager-ref="accessDecisionManager" auto-config="false">
+    	<intercept-url pattern="/index.jsp" access="ROLE_STUDENT,ROLE_TEACHER,ROLE_ADMIN" />
+        <intercept-url pattern="/index.jxp*" access="ROLE_STUDENT,ROLE_TEACHER,ROLE_ADMIN" />
+        <intercept-url pattern="/signon.jxp" access="ROLE_STUDENT,ROLE_TEACHER,ROLE_GUEST,ROLE_ADMIN"/>  
+    	<intercept-url pattern="/signin.jxp" access="ROLE_STUDENT,ROLE_TEACHER,ROLE_GUEST,ROLE_ADMIN"/>  
+		<intercept-url pattern="/*.jxp*" access="ROLE_STUDENT,ROLE_TEACHER,ROLE_ADMIN"/>
+        <!-- 
+		<intercept-url pattern="/*.jxp*" access="ROLE_USER"/>
+    	<intercept-url pattern="/signin.jxp" access="permitAll"/>    	
+        <intercept-url pattern="/messagePost*" access="ROLE_USER" />
+        <intercept-url pattern="/messageDelete*" access="ROLE_ADMIN,IP_LOCAL_HOST" />
+         -->
+        <anonymous username="guest" granted-authority="ROLE_GUEST"/>
+        <form-login login-page="/signin.jxp" default-target-url="/"
+        authentication-failure-url="/signin.jxp?error=true" /> 
+        <logout logout-success-url="/"/>
+        <remember-me />
+   </http>
+
+    <authentication-manager> 
+    <authentication-provider>    	
+    	<!-- 
+    	<password-encoder hash="md5" />
+        <user-service>
+            <user name="admin" password="admin"
+                authorities="ROLE_ADMIN,ROLE_USER" />
+            <user name="demo" password="demo" authorities="ROLE_USER" />
+        </user-service>
+        -->
+        <jdbc-user-service data-source-ref="dataSource" cache-ref="userCache"
+        	users-by-username-query="SELECT username_ as username, password_ as password, enabled_ as enabled FROM users WHERE username_ = ?"
+        	authorities-by-username-query="SELECT users.username_ as username, authorities.authority_ as authority FROM users, authorities WHERE users.username_ = ? AND users.uid_ = authorities.uid_" 
+        /> 
+    </authentication-provider>
+    </authentication-manager>     
+    
+	<beans:bean id="userCache"
+		class="org.springframework.security.core.userdetails.cache.EhCacheBasedUserCache">
+		<beans:property name="cache" ref="userEhCache" />
+	</beans:bean>
+	
+	<beans:bean id="userEhCache"
+		class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<beans:property name="cacheManager" ref="cacheManager" />
+		<beans:property name="cacheName" value="userCache" />
+	</beans:bean>
+
+   <beans:bean id="accessDecisionManager"
+      class="org.springframework.security.access.vote.AffirmativeBased">
+      <beans:property name="decisionVoters">
+         <beans:list>
+             <beans:bean class="org.springframework.security.access.vote.RoleVoter" />
+             <beans:bean class="org.springframework.security.access.vote.AuthenticatedVoter" />
+             <!-- beans:bean class="com.apress.springrecipes.board.security.IpAddressVoter"/-->
+          </beans:list>
+       </beans:property>
+    </beans:bean>
+
+</beans:beans>

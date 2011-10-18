@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.zengsource.umllearning.core.model.Register" table="users" lazy="false">
+		<id name="id" column="uid_"></id>
+		<property name="username_" column="username_" type="string" />
+		<property name="password_" column="password_" type="string" />
+		<property name="email_" column="email_" type="string" />
+		<property name="createdtime_" column="createdtime_" />
+		<property name="updatedtime_" column="updatedtime_" />
+		<property name="enabled" column="enabled"  />
+		<property name="username" column="username"  type="string" />
+		<property name="password" column="password"  type="string" />
+		<property name="nickname_" column="nickname_"  type="string" />
+		<property name="enabled_" column="enabled_"   />
+		
+	</class>
+</hibernate-mapping>

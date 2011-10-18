@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- DAOs -->
+	<bean id="userDao" class="org.jwebtop.core.dao.orm.HibernateUserDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="profileDao" class="org.jwebtop.core.dao.orm.HibernateProfileDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="webwareDao" class="org.jwebtop.core.dao.orm.HibernateWebwareDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- hzucmj -->
+	<bean id="TaskDao" class="org.zengsource.umllearning.core.dao.orm.HibernateTaskDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="commentDao" class="org.zengsource.umllearning.core.dao.orm.HibernateCommentDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="homeworkDao" class="org.zengsource.umllearning.core.dao.orm.HibernateHomeworkDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="registerDao" class="org.zengsource.umllearning.core.dao.orm.HibernateRegisterDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="authDao" class="org.zengsource.umllearning.core.dao.orm.HibernateAuthorityDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="webtopDao" class="org.zengsource.umllearning.core.dao.orm.HibernateWebtopDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- swyma -->
+	<bean id="followDao" class="org.zengsource.umllearning.core.dao.orm.HibernateFollowDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+
+	<!-- Services -->
+	<bean id="cacheService" class="org.jwebtop.core.service.CacheServiceWithEhcache">
+		<property name="ehcache">
+			<ref bean="jwEhcache" />
+		</property>
+	</bean>
+	<bean id="userService" class="org.jwebtop.core.service.UserServiceImpl">
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+		<!-- <property name="cacheService"> <ref bean="cacheService"/> </property> -->
+		<property name="profileService">
+			<ref bean="profileService" />
+		</property>
+	</bean>
+	<bean id="profileService" class="org.jwebtop.core.service.ProfileServiceImpl">
+		<property name="profileDao">
+			<ref bean="profileDao" />
+		</property>
+	</bean>
+	<bean id="webwareService" class="org.jwebtop.core.service.WebwareServiceImpl">
+		<property name="webwareDao">
+			<ref bean="webwareDao" />
+		</property>
+		<property name="cacheService">
+			<ref bean="cacheService" />
+		</property>
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
+		<property name="profileService">
+			<ref bean="profileService" />
+		</property>
+		<property name="mutableAclService">
+			<ref bean="aclService" />
+		</property>
+		<property name="configurationService">
+			<ref bean="configurationService" />
+		</property>
+	</bean>
+
+	<bean id="configurationService" class="org.jwebtop.core.service.ConfigurationServiceImpl">
+	</bean>
+	<!-- hzucmj -->
+	<bean id="TaskService" class="org.zengsource.umllearning.core.service.TaskServiceImpl">
+		<property name="TaskDao">
+			<ref bean="TaskDao"/>
+		</property>
+	</bean>
+	<bean id="commentService" class="org.zengsource.umllearning.core.service.CommentServiceImpl">
+		<property name="commentDao">
+			<ref bean="commentDao" />
+		</property>
+	</bean>
+	<bean id="homeworkService" class="org.zengsource.umllearning.core.service.HomeworkServiceImpl">
+		<property name="homeworkDao">
+			<ref bean="homeworkDao" />
+		</property>
+	</bean>
+	<bean id="registerService" class="org.zengsource.umllearning.core.service.RegisterServiceImpl">
+		<property name="registerDao">
+			<ref bean="registerDao" />
+		</property>
+	</bean>
+	<bean id="authService" class="org.zengsource.umllearning.core.service.AuthorityServiceImpl">
+		<property name="authDao">
+			<ref bean="authDao" />
+		</property>
+	</bean>
+	<bean id="webtopService" class="org.zengsource.umllearning.core.service.WebtopServiceImpl">
+		<property name="webtopDao">
+			<ref bean="webtopDao" />
+		</property>
+	</bean>
+	<!-- swyma -->
+	<bean id="followService" class="org.zengsource.umllearning.core.service.FollowServiceImpl">
+		<property name="followDao">
+			<ref bean="followDao"/>
+		</property>
+	</bean>
+
+	<!-- Actions -->
+	<bean id="index" class="org.jwebtop.core.web.IndexAction" scope="prototype">
+		<property name="forward">
+			<value>/webtop.jxp</value>
+		</property>
+		<property name="configurationService">
+			<ref bean="configurationService" />
+		</property>
+		<property name="webwareService">
+			<ref bean="webwareService" />
+		</property>
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
+
+	<bean id="webware" class="org.jwebtop.core.web.WebwareAction" scope="prototype">
+		<property name="webwareService">
+			<ref bean="webwareService" />
+		</property>
+	</bean>
+	<!-- hzucmj -->
+	<bean id="task" class="org.zengsource.umllearning.core.web.TaskAction">
+		<property name="TaskService">
+			<ref bean="TaskService" />
+		</property>
+		<property name="homeworkService">
+			<ref bean="homeworkService" />
+		</property>
+	</bean>
+	<bean id="savetask" class="org.zengsource.umllearning.core.web.SaveTaskAction" scope="prototype">
+		<property name="TaskService">
+			<ref bean="TaskService" />
+		</property>
+	</bean>
+	<bean id="comment" class="org.zengsource.umllearning.core.web.CommentAction">
+		<property name="commentService">
+			<ref bean="commentService" />
+		</property>
+	</bean>
+	<bean id="homework" class="org.zengsource.umllearning.core.web.HomeworkAction" scope="prototype">
+		<property name="homeworkService">
+			<ref bean="homeworkService" />
+		</property>
+	</bean>
+	<bean id="UpdateHomework" class="org.zengsource.umllearning.core.web.UpdateHomeworkAction">
+		<property name="homeworkService">
+			<ref bean="homeworkService" />
+		</property>
+	</bean>
+	<bean id="signon" class="org.zengsource.umllearning.core.web.RegisterAction" scope="prototype">
+		<property name="registerService">
+			<ref bean="registerService" />
+		</property>
+		<property name="authService">
+			<ref bean="authService" />
+		</property>
+	</bean>
+	<!-- swyma -->
+	<bean id="follow" class="org.zengsource.umllearning.core.web.FollowAction">
+		<property name="followService">
+			<ref bean="followService"/>
+		</property>
+	</bean>
+	<bean id="webtop" class="org.zengsource.umllearning.core.web.IndexAction">
+		<property name="webtopService">
+			<ref bean="webtopService"/>
+		</property>
+	</bean>
+	<bean id="webtopIndex" class="org.zengsource.umllearning.core.web.WebtopAction">
+		<property name="webtopService">
+			<ref bean="webtopService"/>
+		</property>
+	</bean>
+
+</beans>

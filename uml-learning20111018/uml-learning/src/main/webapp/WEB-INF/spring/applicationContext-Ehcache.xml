@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+		
+	<bean id="cacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" 
+		p:config-location="classpath:ehcache.xml" />
+
+    <bean id="jwEhcache"
+          class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="cacheName" value="jwCache"/>
+    </bean>
+<!-- 
+	<bean id="cacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation">
+			<value>classpath:ehcache.xml</value>
+		</property>
+	</bean>
+
+	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager">
+			<ref local="cacheManager" />
+		</property>
+		<property name="cacheName">
+			<value>org.jwebtop.CUSTOM_CACHE</value>
+		</property>
+	</bean>
+	<bean id="cacheService" class="net.zeng.cache.CacheServiceByEhcache">
+		<property name="cache">
+			<ref local="cacheManager" />
+		</property>
+	</bean>
+ -->
+
+</beans>

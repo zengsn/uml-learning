@@ -1,0 +1,48 @@
+<uml>
+	<shape>
+		<elX>260</elX>
+		<elY>78</elY>
+		<dw>120</dw>
+		<dh>40</dh>
+		<text>UseCase</text>
+		<id>el-1</id>
+		<type>start</type>
+		<width>120</width>
+		<height>40</height>
+	</shape>
+	<shape>
+		<elX>242</elX>
+		<elY>202</elY>
+		<dw>100</dw>
+		<dh>30</dh>
+		<text>System</text>
+		<id>el-2</id>
+		<type>SimpleClass</type>
+		<width>100</width>
+		<height>30</height>
+	</shape>
+	<shape>
+		<elX>127</elX>
+		<elY>74</elY>
+		<dw>33</dw>
+		<dh>38</dh>
+		<text>Actor</text>
+		<id>el-0</id>
+		<type>actor</type>
+		<width>33</width>
+		<height>51</height>
+	</shape>
+	
+	<shape>
+		<elX>400</elX>
+		<elY>400</elY>
+		<dw>100</dw>
+		<dh>30</dh>
+		<text>System</text>
+		<id>el-2</id>
+		<type>SimpleClass</type>
+		<width>100</width>
+		<height>30</height>
+	</shape>
+	
+</uml>

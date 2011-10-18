@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.zengsource.umllearning.core.model.Follow" table="tb_follow" lazy="false">
+		<id name="id" column="f_id"></id>
+		<property name="follow" column="f_follow" type="string"></property>
+		<property name="follower" column="f_follower" type="string"></property>
+		<property name="date" column="f_date" type="timestamp"></property>
+	</class>
+</hibernate-mapping>

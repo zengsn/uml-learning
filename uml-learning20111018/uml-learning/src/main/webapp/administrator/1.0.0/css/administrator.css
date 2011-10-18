@@ -1,0 +1,28 @@
+.CmpCls {
+	width : 100%;
+	height : 64px;
+	margin : 5px;
+	border : 1px solid #f0f0f0;
+}
+.CmpCls .CmpIcon {
+	width : 64px;
+	height : 100%;
+	float : left;
+}
+.CmpCls .CmpDesc {
+	height : 100%;
+	float : left;
+}
+.CmpCls .CmpDetail {
+	width : 150px;
+	height : 100%;
+	float : right;
+	padding : 5px;
+	line-height : 24px;
+}
+.refreshCmp {
+	background-image : url("../images/post.png");
+}
+.updateCmp {
+	background-image : url("../images/cmpUpdate.png");
+}

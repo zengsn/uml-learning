@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.jwebtop.core.model.Profile" table="profiles"
+		lazy="false">
+		<id name="id" column="pid_">
+			<generator class="foreign">
+				<param name="property">user</param>
+			</generator>
+		</id>
+		<!-- One-One Mapping using primary key associations -->
+		<one-to-one name="user" class="org.jwebtop.core.model.User"
+			constrained="true" />
+		<set name="webwares" table="profile_webware_link" cascade="save-update" lazy="false">
+			<key column="pid_" />
+			<many-to-many class="org.jwebtop.core.model.Webware"
+				column="wid_" />
+		</set>
+		<property name="updatedTime" column="updatedtime_" type="timestamp" />
+
+	</class>
+</hibernate-mapping>

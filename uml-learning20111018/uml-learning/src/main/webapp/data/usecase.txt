@@ -1,0 +1,25 @@
+[{
+	"id":"actor",
+	"text":"Actor",
+	"leaf" : true
+}, {
+	"id":"usecase",
+	"text":"UseCase",
+	"leaf" : true
+}, {
+	"id":"System",
+	"text":"System",
+	"leaf" : true
+}, {
+	"id":"Note",
+	"text":"Note",
+	"leaf" : true
+}, {
+	"id":"line",
+	"text":"Line",
+	"leaf" : true
+}, {
+	"id":"text",
+	"text":"Text",
+	"leaf":true
+}]

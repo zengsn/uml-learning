@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webware>
+	<wid>teacher</wid>
+	<name>教师模块</name>
+	<author>zsn.cc</author>
+	<release>2009-06-11</release>
+	<screen>teacher-screen.png</screen>
+	<logo>teacher-48.png</logo>
+	<icon>teacher-icon.png</icon>
+	<description>
+		<![CDATA[
+			管理员可用于强制更新网件配置、管理用户、管理群组、管理访问权限等。
+		]]>
+	</description>
+	<versions>1.0.0</versions>
+	<currentVersion>1.0.0</currentVersion>
+	<status>1</status>
+    <styles>
+    	<style></style>admin
+    </styles>
+	<jsSources>
+		<source>CheckHomeworkWin.js</source>
+		<source>TeacherWin.js</source>
+		<source>CheckTask.js</source>
+		<source>cvspanel.js</source>
+		<source>UmlShape.js</source>
+		<source>SubUmlShape.js</source>
+		<source>DrawWin.js</source>
+	</jsSources>
+	<jsCompress>null</jsCompress>
+	<jsClass></jsClass>
+	<springContext></springContext>
+	<acl>
+		<view>admin</view>
+		<install>admin</install>
+		<manage>admin</manage>
+	</acl>
+</webware>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+<!-- 在spring中配置数据源 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	
+<!-- 添加数据库属性文件jdbc.properties、hibernate.properties -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+				<value>classpath:hibernate.properties</value>
+			</list>
+		</property>
+	</bean>
+
+<!-- 在事务管理中添加上面配置的数据源 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+<!-- 在session工厂里面把要用到的model加进去，如User.hbm.xml对应User类，名字要对应，后面那部分是固定格式 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources"><!-- 固定写法 -->
+			<list>
+				<!-- 
+				<value>org/jwebtop/core/model/User.hbm.xml</value>
+				<value>org/jwebtop/core/model/Profile.hbm.xml</value>
+				<value>org/jwebtop/core/model/Webware.hbm.xml</value>
+				<value>org/jwebtop/core/model/Configuration.hbm.xml</value>
+				-->
+				<!-- hzucmj -->
+				<value>org/zengsource/umllearning/core/model/Task.hbm.xml</value>
+				<value>org/zengsource/umllearning/core/model/Comment.hbm.xml</value>
+				<value>org/zengsource/umllearning/core/model/Homework.hbm.xml</value>
+				<value>org/zengsource/umllearning/core/model/Authority.hbm.xml</value>
+				<!-- swyma -->
+				<value>org/zengsource/umllearning/core/model/Register.hbm.xml</value>
+				<!-- swyma -->
+				<value>org/zengsource/umllearning/core/model/Follow.hbm.xml</value>
+				<value>org/zengsource/umllearning/core/model/Webtop.hbm.xml</value>
+				
+			<!-- 
+				<value>org/jwebtop/core/model/Relation.hbm.xml</value>
+				<value>org/jwebtop/core/model/SaveUserFiles.hbm.xml</value>
+				<value>org/jwebtop/core/model/EmailUserSetting.hbm.xml</value>
+				<value>org/jwebtop/core/model/EmailDraft.hbm.xml</value>
+				<value>org/jwebtop/core/model/Calendar.hbm.xml</value>
+				<value>org/jwebtop/core/model/CalendarEvent.hbm.xml</value>
+				 -->
+			</list>
+		</property>
+		<property name="hibernateProperties"><!-- 添加数据库方言和是否显示sql语句 -->
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- session映射Dao层 -->
+	<!-- import resource="classpath:org/jwebtop/core/dao/CoreDaoAC.xml" /-->
+
+</beans>
