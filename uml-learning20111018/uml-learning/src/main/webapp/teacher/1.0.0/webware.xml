@@ -26,6 +26,7 @@
 		<source>UmlShape.js</source>
 		<source>SubUmlShape.js</source>
 		<source>DrawWin.js</source>
+		<source>UmlUp.js</source>
 	</jsSources>
 	<jsCompress>null</jsCompress>
 	<jsClass></jsClass>

@@ -216,5 +216,11 @@
 			<ref bean="webtopService"/>
 		</property>
 	</bean>
-
+	<!-- xsm -->
+	<bean id="getlocalxml" class="org.zengsource.umllearning.core.web.GetLocalXmlAction"  scope="prototype">
+		
+	</bean>
+	<bean id="loadxml" class="org.zengsource.umllearning.core.web.LoadXmlAction"  scope="prototype">
+		
+	</bean>
 </beans>

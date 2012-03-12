@@ -1,5 +1,6 @@
 package org.zengsource.umllearning.core.web;
 
+import java.io.File;
 import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
@@ -9,6 +10,7 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.Cookie;
 
+import org.apache.commons.fileupload.FileItem;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
@@ -26,6 +28,7 @@ import org.zengsource.umllearning.core.model.Task;
 import org.zengsource.umllearning.core.service.HomeworkService;
 import org.zengsource.umllearning.core.service.TaskService;
 import org.zengsource.util.DateUtil;
+import org.zengsource.util.IDUtil;
 
 public class TaskAction extends MultipleAction {
 

@@ -61,7 +61,8 @@ Ext.define('MyDesktop.App', {
     			'MyDesktop.DoTask',
     			'MyDesktop.BrowserInformationWin',
     			'MyDesktop.ShowImg',
-    			'MyDesktop.DrawWin'
+    			'MyDesktop.DrawWin',
+    			'MyDesktop.UmlUp'
     		];
     	} else {
     	
@@ -142,7 +143,8 @@ Ext.define('MyDesktop.App', {
     			new MyDesktop.BrowserInformationWin(),
     			new MyDesktop.ShowImg(),
     			new MyDesktop.DoTask(),
-    			new MyDesktop.DrawWin()
+    			new MyDesktop.DrawWin(),
+    			new MyDesktop.UmlUp()
     		];
     	} else {
     	
@@ -200,19 +202,19 @@ Ext.define('MyDesktop.App', {
              { name: '帐号设置', iconCls: 'user-shortcut', module: 'profile-win' },
              //{ name: '查看成绩', iconCls: 'notepad-shortcut', module: 'notepad' },
              //{ name: '学习资料', iconCls: 'cpu-shortcut', module: 'systemstatus'},
-             { name: 'Uml在线画图', iconCls: 'uml-shortcut', module: 'uml-win'},
+//             { name: 'Uml在线画图', iconCls: 'uml-shortcut', module: 'uml-win'},
              { name: '教师工具', iconCls: 'teacher-shortcut', module: 'teacher-win'},
              { name: '发布问题', iconCls: 'post-shortcut', module: 'post-win'},
              { name: '查看作业', iconCls:'homework-shortcut', module: 'checkhomework-win'},
-             { name: 'umldraw', iconCls: 'draw-shortcut', module: 'draw-win'}
+             { name: 'UML画图', iconCls: 'draw-shortcut', module: 'draw-win'}
          ];
          //学生桌面
          var studentShortcuts = [
              { name: '帐号设置', iconCls: 'user-shortcut', module: 'profile-win' },
-             { name: 'Uml在线画图', iconCls: 'uml-shortcut', module: 'uml-win'},
+//             { name: 'Uml在线画图', iconCls: 'uml-shortcut', module: 'uml-win'},
              { name: '学生工具', iconCls: 'student-shortcut', module: 'stu-win'},
              { name: '发布问题', iconCls: 'post-shortcut', module: 'post-win'},
-             { name: 'umldraw', iconCls: 'draw-shortcut', module: 'draw-win'}
+             { name: 'UML画图', iconCls: 'draw-shortcut', module: 'draw-win'}
          ];
        	
 //       	var shortCuts = (userAuthentication == 'ROLE_ADMIN') ? teacherShortcuts : studentShortcuts;

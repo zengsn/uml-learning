@@ -16,14 +16,12 @@ Ext.define('MyDesktop.DrawWin', {
             handler : this.createWindow,
             scope: this
         };
-    },
-        
-    
+    },   
     
     createWindow : function(){
         var desktop = this.app.getDesktop();
         var win = desktop.getWindow('draw-win');
-        
+       // var getwin=desktop.getWinow('umlup-win');
         //创建工具树
         var usecaseDiagram = desktop.generateTree("usecase", "./data/usecase.txt", false, true, "usecase");
         var activityDiagram = desktop.generateTree("activity", "./data/activity.txt", false, true, "activity");
@@ -49,9 +47,8 @@ Ext.define('MyDesktop.DrawWin', {
         overrideTreeEvent(sequenceDiagram);
         overrideTreeEvent(classDiagram);
         overrideTreeEvent(statusDiagram);
-                 
-        
-        function addEl(node) {
+              
+     /*   function addEl(node) {
 
         	//向数组添加新图形        	
         	Ve.elCount=Ve.elCount+1;
@@ -139,6 +136,20 @@ Ext.define('MyDesktop.DrawWin', {
         	return umlShape;
         }
         
+        function xmlDraw(s){
+        	Ve.elCount=Ve.elCount+1;
+        	//Ve.elSelect=Ve.elSelect+1;
+        	Ve.elSelect = Ve.elCount;
+        	Ve.elArray[Ve.elCount] = checkType(s);
+        	console.log('addEl   :'+Ve.elCount+'---'+Ve.elSelect);
+        	Ve.elArray[Ve.elCount].elX=parseInt(s.elX);
+        	Ve.elArray[Ve.elCount].elY=parseInt(s.elY);
+        	Ve.elArray[Ve.elCount].elWidth=parseInt(s.elWidth);
+        	Ve.elArray[Ve.elCount].elHeight=parseInt(s.elHeight);       	
+        	//开始绘图      
+        	Ve.elArray[Ve.elCount].draw();       	
+        } */
+        
         function getCanvas(){
         	var cvs = Ext.get('myCanvas').dom;
         	return cvs;
@@ -185,8 +196,23 @@ Ext.define('MyDesktop.DrawWin', {
             	Ve.elSelect=Ve.elArray.length-1;
         	}    	
         }
-        
-        var toolsPanel = Ext.create('Ext.panel.Panel', {
+       
+        function generateCanvasXml(){
+        	Ve.canvasXmlData = "<uml>";
+        	for (var i = 0; i < Ve.elArray.length; i++){
+        		Ve.canvasXmlData += "<shape>";
+        		for (attr in Ve.elArray[i]){
+        			if (Ve.elArray[i].hasOwnProperty(attr)){
+        				Ve.canvasXmlData += "<" + attr + ">" + Ve.elArray[i][attr] + "</" + attr + ">";
+        			}
+        		}
+        		Ve.canvasXmlData += "</shape>";
+        	}
+        	Ve.canvasXmlData += "</uml>";
+        	console.log(Ve.canvasXmlData);
+        }
+           
+        /*var toolsPanel = Ext.create('Ext.panel.Panel', {
         	id : 'umlTools',
         	title : '工具箱',
         	layout : 'accordion',
@@ -222,10 +248,125 @@ Ext.define('MyDesktop.DrawWin', {
         			items : [activityDiagram]
         		})
         	]
+        });*/
+
+        var store = Ext.create('Ext.data.Store', {
+        	fields: ['type', 'name'],
+            data:[
+                  {type: 'string', name: '用例图'},
+                  {type: 'string', name: '类图'},
+                  {type: 'string', name: '包图'},
+                  {type: 'string', name: '顺序图'},
+                  {type: 'string', name: '状态图'},
+                  {type: 'string', name: '活动图'}
+            ]
+        });
+
+        var simpleCombo = Ext.create('Ext.form.field.ComboBox', {
+            //fieldLabel: 'Select a single state',
+        	id: 'combo',
+            displayField: 'name',
+            width: 150,
+            labelWidth: 130,
+            store: store,
+            queryMode: 'local',
+            typeAhead: true,
+            listeners:{
+                'select': function(){
+                	var layout = Ext.getCmp('dpanel').getLayout();
+                	if(this.getValue()=="用例图"){
+                		layout.setActiveItem(0);
+                	}else if(this.getValue()=="类图"){
+                		layout.setActiveItem(1);
+                	}else if(this.getValue()=="包图"){
+                		layout.setActiveItem(2);
+                	}else if(this.getValue()=="顺序图"){
+                		layout.setActiveItem(3);
+                	}else if(this.getValue()=="状态图"){
+                		layout.setActiveItem(4);
+                	}else if(this.getValue()=="活动图"){
+                		layout.setActiveItem(5);
+                	}
+                }
+            }
+        });
+        var toolsPanel = Ext.create('Ext.panel.Panel', {
+        	id : 'umlTools',
+        	title : '请选择UML图：',
+        	layout : 'vbox',
+        	region : 'west',
+        	width : 150,
+        	maxWidth : 150,
+        	collapsible : true,
+        	autoHeight : true,
+        	items : [
+        			simpleCombo,
+        			Ext.create('Ext.panel.Panel',{
+        				id: 'dpanel',
+        				width : 150,
+        				layout: 'card',
+        				activeItem: false,
+        				baseCls: true,
+        				items: [
+        				        new Ext.Panel({
+//        				        	id: 'ucp',
+//									title : '用例图', 
+        				        	baseCls: true,
+									items : [usecaseDiagram]
+								}), 
+								new Ext.Panel({
+//									id: 'clp',
+//									title : '类图',
+									baseCls: true,
+									items : [classDiagram]
+								}),
+								new Ext.Panel({
+//									id: 'pap',
+//									title : '包图',
+									baseCls: true,
+									items : [packageDiagram]
+								}),
+								new Ext.Panel({
+//									id: 'sep',
+//									title : '顺序图',
+									baseCls: true,
+									items : [sequenceDiagram]
+								}),
+								new Ext.Panel({
+//									id: 'stp',
+//									title : '状态图',
+									baseCls: true,
+									items : [statusDiagram]
+								}),
+								new Ext.Panel({
+//									id: 'acp',
+//									title : '活动图',
+									baseCls: true,
+									items : [activityDiagram]
+								})     
+							        				        
+        				        ]
+        			})
+             		
+             	]
         });
         var canvasPanel = Ext.create('canvasPanel', {       	
         	region : 'center',
-        	dockedItems : [{
+        	listeners: {
+				init: function(p){
+					var sas=new SelectAll();
+					/*p.el.on("mouseenter",function(){
+						this.onEditting
+					},"mouseleave",function(){
+						this.stopEditing
+					},"mousemove",function(){
+						this.checkStatus
+					},"mousedown",function(){
+						this.recordDown
+					})*/
+				}
+			}
+        	/*dockedItems : [{
         		xtype : 'toolbar',
 				dock : 'bottom',
 				items : [{
@@ -233,14 +374,85 @@ Ext.define('MyDesktop.DrawWin', {
 					xtype : 'label',
 					text : '当前选中：'
 				}]
-        	}]
+        	}]*/
         });
-        
-       
+        var upanel=Ext.create('Ext.form.Panel', {
+			//title: 'Upload a Xml',
+			width: 400,
+			bodyPadding: 10,
+			baseCls: true,
+			frame: true, 
+			fileUpload: true,
+			items: [{
+				xtype: 'filefield',
+				name: 'umlxml',
+				fieldLabel: 'XML文件',
+				labelWidth: 50,
+				msgTarget: 'side',
+				allowBlank: false,
+				anchor: '100%',
+				buttonText: '选择文件...'
+			}],
 
+			buttons: [{
+				text: '确定',
+				handler: function() {
+					var form = this.up('form').getForm();
+					var fileName="";
+					if(form.isValid()){
+						form.submit({
+							url: './getlocalxml.jxp',
+							method : 'post',
+	    					success : function(form, action){
+	    						Ext.Msg.alert('提示信息', action.result.msg);
+	    						//getwin.close();
+	    						
+	    						fileName=action.result.data;
+	    						console.log('filename:'+fileName);
+	    						var i;
+				                var obj=Ext.decode(fileName); 
+				                for(i=0;i<obj.length;i++){
+				                	var a=new Array();
+				                	a[i]=obj[i];
+				                	console.log('json   array:'+a[i]);
+				                	xmlDraw(a[i]);
+				                }   						
+	    					},
+	    					failure : function(form, action){
+	    						Ext.Msg.alert('提示信息', action.result.msg);
+	    						getwin.close();
+	    					}														
+						});
+					}
+				}
+			}]
+		});
+        function saveFile(T,content) {
+          var filename=T;
+          var win=window.open('','','top=10000,left=10000');
+          win.document.write(content);
+         // win.close();
+//          win.document.open("application/xml",filename);
+          win.document.execCommand('SaveAs','f1.xml');
+          
+        }
+        var getwin=Ext.create('Ext.window.Window',{
+        	id: 'getwin',
+			title: '导入XML',
+			width: 412,
+			height: 120,
+			resizable: false,
+			items: upanel				
+		});
+
+        function saveAs(){
+        	var data = Ext.toDataURL();
+//        	window.location.href = data;
+        	var win = window.open(data,'Your pic','status=yes');
+        }
         if(!win){
             win = desktop.createWindow({
-                id: 'uml-win',
+                id: 'draw-win',
                 title:'UML在线画图工具',
                 width:1050,
                 height:600,
@@ -264,6 +476,40 @@ Ext.define('MyDesktop.DrawWin', {
 					xtype : 'toolbar',
 					dock : 'top',
 					items : ['->',{
+						text: '导入XML',
+						handler: function(){
+							//getwin.show();
+							desktop.onCreateWindow('umlup-win');
+						}
+					},{
+						text: '导出XML',
+						handler: function(){
+//							window.location.href='./data/tool.xml';
+//							window.open('./data/tool.xml','_blank','width=500,height=500,directories=yes');
+//							saveFile('data/tool.xml','asdasdfadfadf');
+							var fileName="123.xml";
+							var filePath="E:/test.xml";
+							Ext.Ajax.request({ 
+					        	url:'./loadxml.jxp',
+					        	params:{
+					        		//checkFileExist: 'checkFileExist',
+					        		filename: fileName,
+					        		filepath: filePath
+					        	},
+					        	//method: 'post',  
+					        	success : function(response, config){
+//									Ext.Msg.alert('提示', response.responseText);
+					        		var obj = Ext.decode(response.responseText);   
+					                console.log(obj);//可以到火狐的firebug下面看看obj里面的结构   
+					                //加入getPath返回的json为{'path':'upload/abc.jpg'}   
+					                window.location.href = obj.path;//这样就可以弹出下载对话框了
+								}, 
+								failure : function(response, config){
+									Ext.Msg.alert('提示', response.responseText);
+								} 
+				        	}); 
+						}
+					},{
 						text : '保存',
 						handler : function(){
 							saveAs();
@@ -280,17 +526,28 @@ Ext.define('MyDesktop.DrawWin', {
 					}, {
 						text : '清除',
 						handler : function(){
-							clearAll();
+							var really = Ext.Msg.show({
+								title : '警告信息',
+								msg : '确认要删除吗？',
+								buttons : Ext.Msg.YESNO,
+								icon : Ext.window.MessageBox.QUESTION,
+								fn : function(button, text){
+									if (button == 'yes'){
+										clearAll();
+									}
+								}
+							});
+//							clearAll();
 						}
 					}, {
 						text : '上传',
 						handler : function(){
 							generateCanvasXml();
-							if (canvasXmlData != '<uml></uml>'){
+							if (Ve.canvasXmlData != '<uml></uml>'){
 								Ext.Ajax.request({
 									url : './task.jxp?action=saveUmlString',
 									params : {
-										umlString : canvasXmlData
+										umlString : Ve.canvasXmlData
 									},
 									success : function(response, config){
 										Ext.Msg.alert('提示', response.responseText);
@@ -303,17 +560,17 @@ Ext.define('MyDesktop.DrawWin', {
 								Ext.Msg.alert('提示', '请先绘制相关图形,再进行上传操作！');
 							}
 						}
-					}, {
+					}, /*{
 						text : '缩小',
 						handler : function(){
-							zoomIn();
+							
 						}
 					}, {
 						text : '放大',
 						handler : function(){
-							zoomOut();
+							
 						}
-					}, {
+					}, */{
 						text : '删除',
 						handler : function(){
 							clearShape();

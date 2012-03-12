@@ -274,27 +274,27 @@ Ext.define('MyDesktop.TeacherWin',{
 						}
 					}, {
 						text:'刷新',
-						handler : function(){
+						handler :function(){
 							view.getStore().load();
 						}
 					}, '-', {
 						text : '第一页',
-						handler :　function(){
+						handler :function(){
 							Ext.getCmp('taskPaging').moveFirst();
 						}
 					}, {
 						text : '上一页',
-						handler :　function(){
+						handler :function(){
 							Ext.getCmp('taskPaging').movePrevious();
 						}
 					}, {
 						text : '下一页',
-						handler :　function(){
+						handler :function(){
 							Ext.getCmp('taskPaging').moveNext();
 						}
 					}, {
 						text : '最后一页',
-						handler :　function(){
+						handler :function(){
 							Ext.getCmp('taskPaging').moveLast();
 						}
 					}],

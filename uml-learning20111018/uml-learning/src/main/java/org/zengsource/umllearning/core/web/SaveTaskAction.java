@@ -109,7 +109,7 @@ public class SaveTaskAction extends MultipartAction {
 
 	public void fileUpload() {
 
-		String rootPath = getContext().getRootPath();
+		String rootPath = getContext().getRootPath();		
 		File usrDir = new File(rootPath + "/upload/");
 		if (!usrDir.exists() || usrDir.isFile()){
 			usrDir.mkdirs();

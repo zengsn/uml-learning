@@ -1,0 +1,96 @@
+<uml>
+	<shape>
+		<elX>
+			196
+		</elX>
+		<elY>
+			43
+		</elY>
+		<elWidth>
+			150
+		</elWidth>
+		<elHeight>
+			100
+		</elHeight>
+		<events>
+			[object Object]
+		</events>
+		<elNum>
+			0
+		</elNum>
+		<cvs>
+			[object HTMLCanvasElement]
+		</cvs>
+		<ctx>
+			[object CanvasRenderingContext2D]
+		</ctx>
+		<status>
+			begin
+		</status>
+		<mousepos>
+			mouseout
+		</mousepos>
+		<text>
+			Note
+		</text>
+		<id>
+			el-0
+		</id>
+		<type>
+			Note
+		</type>
+		<selX>
+			285
+		</selX>
+		<selY>
+			78
+		</selY>
+	</shape>
+	<shape>
+		<elX>
+			425
+		</elX>
+		<elY>
+			104
+		</elY>
+		<elWidth>
+			100
+		</elWidth>
+		<elHeight>
+			70
+		</elHeight>
+		<events>
+			[object Object]
+		</events>
+		<elNum>
+			1
+		</elNum>
+		<cvs>
+			[object HTMLCanvasElement]
+		</cvs>
+		<ctx>
+			[object CanvasRenderingContext2D]
+		</ctx>
+		<status>
+			begin
+		</status>
+		<mousepos>
+			mouseout
+		</mousepos>
+		<text>
+			UseCase
+		</text>
+		<id>
+			el-1
+		</id>
+		<type>
+			usecase
+		</type>
+		<selX>
+			481
+		</selX>
+		<selY>
+			129
+		</selY>
+	</shape>
+</uml>
